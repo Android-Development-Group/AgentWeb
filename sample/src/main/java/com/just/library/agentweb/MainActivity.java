@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doClick(int position) {
-
-
         switch (position) {
 
             /*Activity agentWeb*/
