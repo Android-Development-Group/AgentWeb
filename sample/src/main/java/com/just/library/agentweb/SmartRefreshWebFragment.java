@@ -14,21 +14,21 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 /**
  * Created by cenxiaozhong on 2017/7/1.
- *  source CODE  https://github.com/Justson/AgentWeb
+ * source CODE  https://github.com/Justson/AgentWeb
  */
 
 public class SmartRefreshWebFragment extends BounceWebFragment {
 
-    public static SmartRefreshWebFragment getInstance(Bundle bundle){
+    public static SmartRefreshWebFragment getInstance(Bundle bundle) {
 
-        SmartRefreshWebFragment mSmartRefreshWebFragment =new SmartRefreshWebFragment();
-        if(mSmartRefreshWebFragment !=null)
+        SmartRefreshWebFragment mSmartRefreshWebFragment = new SmartRefreshWebFragment();
+        if (mSmartRefreshWebFragment != null)
             mSmartRefreshWebFragment.setArguments(bundle);
 
         return mSmartRefreshWebFragment;
     }
 
-    private SmartRefreshWebLayout mSmartRefreshWebLayout=null;
+    private SmartRefreshWebLayout mSmartRefreshWebLayout = null;
 
     @Override
     public String getUrl() {
@@ -40,9 +40,9 @@ public class SmartRefreshWebFragment extends BounceWebFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final SmartRefreshLayout mSmartRefreshLayout= (SmartRefreshLayout) this.mSmartRefreshWebLayout.getLayout();
+        final SmartRefreshLayout mSmartRefreshLayout = (SmartRefreshLayout) this.mSmartRefreshWebLayout.getLayout();
 
-        final WebView mWebView=this.mSmartRefreshWebLayout.getWeb();
+        final WebView mWebView = this.mSmartRefreshWebLayout.getWeb();
         mSmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
@@ -53,23 +53,19 @@ public class SmartRefreshWebFragment extends BounceWebFragment {
                     public void run() {
                         mSmartRefreshLayout.finishRefresh();
                     }
-                },2000);
+                }, 2000);
             }
         });
         mSmartRefreshLayout.autoRefresh();
 
 
-
     }
-
 
 
     @Override
-    protected IWebLayout getWebLayout(){
-        return this.mSmartRefreshWebLayout=new SmartRefreshWebLayout(this.getActivity());
+    protected IWebLayout getWebLayout() {
+        return this.mSmartRefreshWebLayout = new SmartRefreshWebLayout(this.getActivity());
     }
-
-
 
 
     @Override

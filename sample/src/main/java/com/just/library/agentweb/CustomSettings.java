@@ -1,5 +1,7 @@
 package com.just.library.agentweb;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.webkit.WebView;
 
 import com.just.library.AgentWebSettings;
@@ -16,6 +18,7 @@ public class CustomSettings extends WebDefaultSettingsManager {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public AgentWebSettings toSetting(WebView webView) {
         super.toSetting(webView);

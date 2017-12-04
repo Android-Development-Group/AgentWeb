@@ -19,9 +19,9 @@ public class SmartRefreshWebLayout implements IWebLayout {
     private final SmartRefreshLayout mSmartRefreshLayout;
     private final WebView mWebView;
 
-    public SmartRefreshWebLayout(Activity activity){
+    public SmartRefreshWebLayout(Activity activity) {
 
-        View mView=activity.getLayoutInflater().inflate(R.layout.fragment_srl_web,null);
+        View mView = activity.getLayoutInflater().inflate(R.layout.fragment_srl_web, null);
         View smarkView = mView.findViewById(R.id.smarkLayout);
         mSmartRefreshLayout = (SmartRefreshLayout) smarkView;
         mWebView = (WebView) mSmartRefreshLayout.findViewById(R.id.webView);

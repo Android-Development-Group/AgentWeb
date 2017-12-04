@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 /**
  * Created by cenxiaozhong on 2017/5/23.
- *  source CODE  https://github.com/Justson/AgentWeb
+ * source CODE  https://github.com/Justson/AgentWeb
  */
 
 public class CommonActivity extends AppCompatActivity {
@@ -43,9 +43,7 @@ public class CommonActivity extends AppCompatActivity {
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         Bundle mBundle = null;
 
-
         switch (key) {
-
             /*Fragment 使用AgenWeb*/
             case 0:
                 ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
@@ -71,7 +69,6 @@ public class CommonActivity extends AppCompatActivity {
                 ft.add(R.id.container_framelayout, mAgentWebFragment = JsAgentWebFragment.getInstance(mBundle = new Bundle()), JsAgentWebFragment.class.getName());
                 mBundle.putString(AgentWebFragment.URL_KEY, "file:///android_asset/js_interaction/hello.html");
                 break;
-
             /*优酷*/
             case 5:
                 ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
@@ -88,7 +85,6 @@ public class CommonActivity extends AppCompatActivity {
                 ft.add(R.id.container_framelayout, mAgentWebFragment = CustomSettingsFragment.getInstance(mBundle = new Bundle()), CustomSettingsFragment.class.getName());
                 mBundle.putString(AgentWebFragment.URL_KEY, "http://www.wandoujia.com/apps");
                 break;
-
             /*短信*/
             case 8:
                 ft.add(R.id.container_framelayout, mAgentWebFragment = AgentWebFragment.getInstance(mBundle = new Bundle()), AgentWebFragment.class.getName());
@@ -104,13 +100,11 @@ public class CommonActivity extends AppCompatActivity {
                 ft.add(R.id.container_framelayout, mAgentWebFragment = BounceWebFragment.getInstance(mBundle = new Bundle()), BounceWebFragment.class.getName());
                 mBundle.putString(AgentWebFragment.URL_KEY, "http://m.mogujie.com/?f=mgjlm&ptp=_qd._cps______3069826.152.1.0");
                 break;
-
             /*JsBridge 演示*/
             case 11:
                 ft.add(R.id.container_framelayout, mAgentWebFragment = JsbridgeWebFragment.getInstance(mBundle = new Bundle()), JsbridgeWebFragment.class.getName());
                 mBundle.putString(AgentWebFragment.URL_KEY, "file:///android_asset/jsbridge/demo.html");
                 break;
-
             /*SmartRefresh 下拉刷新*/
             case 12:
                 ft.add(R.id.container_framelayout, mAgentWebFragment = SmartRefreshWebFragment.getInstance(mBundle = new Bundle()), SmartRefreshWebFragment.class.getName());
@@ -131,7 +125,6 @@ public class CommonActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         AgentWebFragment mAgentWebFragment = this.mAgentWebFragment;
         if (mAgentWebFragment != null) {
             FragmentKeyDown mFragmentKeyDown = mAgentWebFragment;

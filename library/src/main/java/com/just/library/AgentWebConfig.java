@@ -24,8 +24,8 @@ public class AgentWebConfig {
     static final String DOWNLOAD_PATH = "download";
 
 
-    static final String DOWNLOAD_FILE_PATH= Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + AgentWebConfig.DOWNLOAD_PATH;
-    public static boolean DEBUG=true;
+    static final String DOWNLOAD_FILE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + AgentWebConfig.DOWNLOAD_PATH;
+    public static boolean DEBUG = true;
 
     static final boolean isKikatOrBelowKikat = Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT;
 //    static final boolean isKikatOrBelowKikat= true;
@@ -76,7 +76,9 @@ public class AgentWebConfig {
             callback.onReceiveValue(new Boolean(true));
             return;
         }
-        CookieManager.getInstance().removeSessionCookies(callback);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager.getInstance().removeSessionCookies(callback);
+        }
         toSyncCookies();
 
     }
@@ -92,7 +94,9 @@ public class AgentWebConfig {
             callback.onReceiveValue(!CookieManager.getInstance().hasCookies());
             return;
         }
-        CookieManager.getInstance().removeAllCookies(callback);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager.getInstance().removeAllCookies(callback);
+        }
         toSyncCookies();
     }
 
@@ -105,7 +109,6 @@ public class AgentWebConfig {
             }
         };
     }
-
 
 
     private static boolean isInit = false;
@@ -149,14 +152,18 @@ public class AgentWebConfig {
             CookieSyncManager.getInstance().sync();
             return;
         }
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(new Runnable() {
-            @Override
-            public void run() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            AsyncTask.THREAD_POOL_EXECUTOR.execute(new Runnable() {
+                @Override
+                public void run() {
 
-                CookieManager.getInstance().flush();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        CookieManager.getInstance().flush();
+                    }
 
-            }
-        });
+                }
+            });
+        }
     }
 
 }

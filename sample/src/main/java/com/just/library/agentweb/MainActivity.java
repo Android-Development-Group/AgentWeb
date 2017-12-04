@@ -24,23 +24,20 @@ import static com.just.library.agentweb.CommonActivity.TYPE_KEY;
  */
 public class MainActivity extends AppCompatActivity {
 
-
     private ListView mListView;
 
     private Toolbar mToolbar;
     private TextView mTitleTextView;
 
-
-    public static final String[] datas = new String[]{"Activity 使用 AgentWeb", "Fragment 使用 AgentWeb ", "文件下载", "input标签文件上传", "Js 通信文件上传,兼用Android 4.4Kitkat", "Js 通信","Video 视屏全屏播放", "自定义进度条", "自定义设置","电话 ， 信息 ， 邮件","自定义 WebView","下拉回弹效果","支持 Jsbridge","继承 BaseAgentWebActivity","继承 BaseAgentWebFragment","SmartRefresh 下拉刷新"};
+    public String[] datas;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_main);
 
+        datas = getResources().getStringArray(R.array.items_name);
 
         mToolbar = (Toolbar) this.findViewById(R.id.toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
@@ -48,43 +45,37 @@ public class MainActivity extends AppCompatActivity {
         mTitleTextView = (TextView) this.findViewById(R.id.toolbar_title);
         mTitleTextView.setText("AgentWeb 使用指南");
         this.setSupportActionBar(mToolbar);
-        if (getSupportActionBar() != null)
-            // Enable the Up button
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MainActivity.this.finish();
-            }
-        });
+//        if (getSupportActionBar() != null)
+        // Enable the Up button
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                MainActivity.this.finish();
+//            }
+//        });
 
         mListView = (ListView) this.findViewById(R.id.listView);
         mListView.setAdapter(new MainAdapter());
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 doClick(position);
             }
         });
 
 
-
-        if(AgentWebConfig.DEBUG){
-            Log.i("Info","Debug 模式");
-        }else{
-            Log.i("Info","release 模式");
+        if (AgentWebConfig.DEBUG) {
+            Log.i("Info", "Debug 模式");
+        } else {
+            Log.i("Info", "release 模式");
         }
-
     }
 
     private void doClick(int position) {
         switch (position) {
-
             /*Activity agentWeb*/
             case 0:
-
                 startActivity(new Intent(this, WebActivity.class));
                 break;
             case 1:
@@ -105,15 +96,12 @@ public class MainActivity extends AppCompatActivity {
             case 6:
                 startActivity(new Intent(this, CommonActivity.class).putExtra(TYPE_KEY, 5));
                 break;
-
             case 7:
                 startActivity(new Intent(this, CommonActivity.class).putExtra(TYPE_KEY, 6));
                 break;
-
             case 8:
                 startActivity(new Intent(this, CommonActivity.class).putExtra(TYPE_KEY, 7));
                 break;
-
             case 9:
                 startActivity(new Intent(this, CommonActivity.class).putExtra(TYPE_KEY, 8));
                 break;
@@ -129,17 +117,12 @@ public class MainActivity extends AppCompatActivity {
             case 13:
                 startActivity(new Intent(this, EasyWebActivity.class));
                 break;
-
             case 14:
                 startActivity(new Intent(this, ContainerActivity.class));
                 break;
-
             case 15:
                 startActivity(new Intent(this, CommonActivity.class).putExtra(TYPE_KEY, 12));
-
         }
-
-
     }
 
 
@@ -183,6 +166,4 @@ public class MainActivity extends AppCompatActivity {
     class ViewHolder {
         TextView mTextView;
     }
-
-
 }

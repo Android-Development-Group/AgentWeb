@@ -25,9 +25,10 @@ public class EasyWebFragment extends BaseAgentWebFragment {
     private TextView mTitleTextView;
     private ImageView mMoreImageView;
     private PopupMenu mPopupMenu;
-    public static EasyWebFragment getInstance(Bundle bundle){
-        EasyWebFragment mEasyWebFragment=new EasyWebFragment();
-        if(bundle==null)
+
+    public static EasyWebFragment getInstance(Bundle bundle) {
+        EasyWebFragment mEasyWebFragment = new EasyWebFragment();
+        if (bundle == null)
             mEasyWebFragment.setArguments(bundle);
         return mEasyWebFragment;
 
@@ -36,7 +37,7 @@ public class EasyWebFragment extends BaseAgentWebFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return mViewGroup= (ViewGroup) inflater.inflate(R.layout.fragment_agentweb, container, false);
+        return mViewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_agentweb, container, false);
     }
 
     @NonNull
@@ -71,6 +72,7 @@ public class EasyWebFragment extends BaseAgentWebFragment {
         mBackImageView.setVisibility(tag);
         mLineView.setVisibility(tag);
     }
+
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -94,8 +96,6 @@ public class EasyWebFragment extends BaseAgentWebFragment {
 
 
     };
-
-
 
 
 }

@@ -11,7 +11,7 @@ import com.just.library.AgentWeb;
 
 /**
  * Created by cenxiaozhong on 2017/5/14.
- *  source CODE  https://github.com/Justson/AgentWeb
+ * source CODE  https://github.com/Justson/AgentWeb
  */
 
 public class AndroidInterface {
@@ -24,7 +24,6 @@ public class AndroidInterface {
         this.agent = agent;
         this.context = context;
     }
-
 
 
     @JavascriptInterface

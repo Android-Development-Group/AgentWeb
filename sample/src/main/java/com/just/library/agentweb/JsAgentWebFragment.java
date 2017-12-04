@@ -38,77 +38,68 @@ public class JsAgentWebFragment extends AgentWebFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
-        LinearLayout mLinearLayout= (LinearLayout) view;
-        LayoutInflater.from(getContext()).inflate(R.layout.fragment_js,mLinearLayout,true);
+        LinearLayout mLinearLayout = (LinearLayout) view;
+        LayoutInflater.from(getContext()).inflate(R.layout.fragment_js, mLinearLayout, true);
         super.onViewCreated(view, savedInstanceState);
 
 
-        Log.i("Info","add android:"+mAgentWeb);
-        if(mAgentWeb!=null){
-            mAgentWeb.getJsInterfaceHolder().addJavaObject("android",new AndroidInterface(mAgentWeb,this.getActivity()));
-
+        Log.i("Info", "add android:" + mAgentWeb);
+        if (mAgentWeb != null) {
+            mAgentWeb.getJsInterfaceHolder().addJavaObject("android", new AndroidInterface(mAgentWeb, this.getActivity()));
         }
 
         view.findViewById(R.id.one).setOnClickListener(mOnClickListener);
         view.findViewById(R.id.two).setOnClickListener(mOnClickListener);
         view.findViewById(R.id.three).setOnClickListener(mOnClickListener);
         view.findViewById(R.id.four).setOnClickListener(mOnClickListener);
-
-
-
     }
 
-    private View.OnClickListener mOnClickListener=new View.OnClickListener() {
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public void onClick(View v) {
-
-
-            switch (v.getId()){
+            switch (v.getId()) {
 
                 case R.id.one:
                     mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroid");
                     break;
 
                 case R.id.two:
-                    mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroidParam","Hello ! Agentweb");
+                    mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroidParam", "Hello ! Agentweb");
                     break;
 
                 case R.id.three:
                     mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroidMoreParams", new ValueCallback<String>() {
                         @Override
                         public void onReceiveValue(String value) {
-                            Log.i("Info","value:"+value);
+                            Log.i("Info", "value:" + value);
                         }
-                    },getJson(),"say:", " Hello! Agentweb");
+                    }, getJson(), "say:", " Hello! Agentweb");
                     break;
                 case R.id.four:
-                    mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroidInteraction","你好Js");
+                    mAgentWeb.getJsEntraceAccess().quickCallJs("callByAndroidInteraction", "你好Js");
                     break;
             }
 
         }
     };
 
-    private String getJson(){
-
-        String result="";
+    private String getJson() {
+        String result = "";
         try {
-
-            JSONObject mJSONObject=new JSONObject();
-            mJSONObject.put("id",1);
-            mJSONObject.put("name","Agentweb");
-            mJSONObject.put("age",18);
-            result= mJSONObject.toString();
-        }catch (Exception e){
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("id", 1);
+            mJSONObject.put("name", "Agentweb");
+            mJSONObject.put("age", 18);
+            result = mJSONObject.toString();
+        } catch (Exception e) {
 
         }
 
         return result;
     }
 
-    static class Student{
+    static class Student {
         private int id;
         private String name;
         private String age;

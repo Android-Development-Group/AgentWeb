@@ -1,5 +1,7 @@
 package com.just.library.agentweb;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -18,24 +20,27 @@ import com.just.library.WebDefaultSettingsManager;
  */
 
 public class CustomIndicatorFragment extends AgentWebFragment {
-    public static CustomIndicatorFragment getInstance(Bundle bundle){
-        CustomIndicatorFragment mCustomIndicatorFragment=new CustomIndicatorFragment();
-        if(bundle!=null)
+    public static CustomIndicatorFragment getInstance(Bundle bundle) {
+        CustomIndicatorFragment mCustomIndicatorFragment = new CustomIndicatorFragment();
+        if (bundle != null)
             mCustomIndicatorFragment.setArguments(bundle);
         return mCustomIndicatorFragment;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        CommonIndicator mCommonIndicator=new CommonIndicator(this.getActivity());
-        FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(-2,-2);
-        lp.gravity= Gravity.CENTER;
-        ProgressBar mProgressBar=new ProgressBar(this.getActivity());
-        mProgressBar.setBackground(this.getResources().getDrawable(R.drawable.indicator_shape));
-        mCommonIndicator.addView(mProgressBar,lp);
+        CommonIndicator mCommonIndicator = new CommonIndicator(this.getActivity());
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(-2, -2);
+        lp.gravity = Gravity.CENTER;
+        ProgressBar mProgressBar = new ProgressBar(this.getActivity());
 
-        this.mAgentWeb = AgentWeb.with( this)//
+        mProgressBar.setBackground(this.getResources().getDrawable(R.drawable.indicator_shape));
+
+        mCommonIndicator.addView(mProgressBar, lp);
+
+        this.mAgentWeb = AgentWeb.with(this)//
                 .setAgentWebParent((ViewGroup) view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))//
                 .setCustomIndicator(mCommonIndicator)
                 .setAgentWebWebSettings(WebDefaultSettingsManager.getInstance())//

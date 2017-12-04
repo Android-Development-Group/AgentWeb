@@ -8,7 +8,7 @@ import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by cenxiaozhong on 2017/5/23.
- *  source CODE  https://github.com/Justson/AgentWeb
+ * source CODE  https://github.com/Justson/AgentWeb
  */
 
 public class App extends Application {
@@ -17,7 +17,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        WebView mWebView=new WebView(new MutableContextWrapper(this));
+        WebView mWebView = new WebView(new MutableContextWrapper(this));
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.

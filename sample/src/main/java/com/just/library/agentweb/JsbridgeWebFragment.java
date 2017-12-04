@@ -20,10 +20,10 @@ import com.just.library.AgentWeb;
 
 public class JsbridgeWebFragment extends AgentWebFragment {
 
-    public static JsbridgeWebFragment getInstance(Bundle bundle){
+    public static JsbridgeWebFragment getInstance(Bundle bundle) {
 
-        JsbridgeWebFragment mJsbridgeWebFragment =new JsbridgeWebFragment();
-        if(mJsbridgeWebFragment !=null)
+        JsbridgeWebFragment mJsbridgeWebFragment = new JsbridgeWebFragment();
+        if (mJsbridgeWebFragment != null)
             mJsbridgeWebFragment.setArguments(bundle);
 
         return mJsbridgeWebFragment;
@@ -39,7 +39,7 @@ public class JsbridgeWebFragment extends AgentWebFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        mBridgeWebView=new BridgeWebView(getActivity());
+        mBridgeWebView = new BridgeWebView(getActivity());
         mAgentWeb = AgentWeb.with(this)//
                 .setAgentWebParent((ViewGroup) view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))//
                 .setIndicatorColorWithHeight(-1, 2)//
@@ -55,10 +55,7 @@ public class JsbridgeWebFragment extends AgentWebFragment {
                 .go(getUrl());
 
 
-
-
         initView(view);
-
 
 
         mBridgeWebView.registerHandler("submitFromWeb", new BridgeHandler() {
@@ -77,7 +74,6 @@ public class JsbridgeWebFragment extends AgentWebFragment {
         user.name = "Agentweb --> Jsbridge";
 
 
-
         mBridgeWebView.callHandler("functionInJs", new Gson().toJson(user), new CallBackFunction() {
             @Override
             public void onCallBack(String data) {
@@ -88,11 +84,7 @@ public class JsbridgeWebFragment extends AgentWebFragment {
         mBridgeWebView.send("hello");
 
 
-
     }
-
-
-
 
 
     static class Location {
@@ -104,9 +96,6 @@ public class JsbridgeWebFragment extends AgentWebFragment {
         Location location;
         String testStr;
     }
-
-
-
 
 
 }

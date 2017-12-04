@@ -10,8 +10,7 @@ import com.just.library.BaseIndicatorView;
 
 /**
  * Created by cenxiaozhong on 2017/5/26.
- *  source code  https://github.com/Justson/AgentWeb
- *
+ * source code  https://github.com/Justson/AgentWeb
  */
 
 public class CommonIndicator extends BaseIndicatorView {
@@ -35,12 +34,12 @@ public class CommonIndicator extends BaseIndicatorView {
 
     @Override
     public void hide() {
-            this.setVisibility(View.GONE);
+        this.setVisibility(View.GONE);
     }
 
 
     @Override
     public LayoutParams offerLayoutParams() {
-        return new FrameLayout.LayoutParams(-1,-1);
+        return new FrameLayout.LayoutParams(-1, -1);
     }
 }

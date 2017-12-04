@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">AgentWeb</string>
+
+    <array name="items_name">
+        <item>1.Activity 使用 AgentWeb</item>
+        <item>2.Fragment 使用 AgentWeb</item>
+        <item>3.文件下载</item>
+        <item>4.input标签文件上传</item>
+        <item>5.Js 通信文件上传,兼用 Android 4.4Kitkat</item>
+        <item>6.Js 通信</item>
+        <item>7.Video 视屏全屏播放</item>
+        <item>8.自定义进度条</item>
+        <item>9.自定义设置</item>
+        <item>10.电话,信息,邮件</item>
+        <item>11.自定义 WebView</item>
+        <item>12.下拉回弹效果</item>
+        <item>13.支持 Jsbridge</item>
+        <item>14.继承 BaseAgentWebActivity</item>
+        <item>15.继承 BaseAgentWebFragment</item>
+        <item>16.SmartRefresh 下拉刷新</item>
+    </array>
 </resources>

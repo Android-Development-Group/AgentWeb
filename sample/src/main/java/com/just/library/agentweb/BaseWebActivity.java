@@ -25,15 +25,14 @@ import com.just.library.LogUtils;
 
 /**
  * Created by cenxiaozhong on 2017/5/26.
- *
+ * <p>
  * source CODE  https://github.com/Justson/AgentWeb
- *
+ * <p>
  * 使用 AgentWeb 需要通过组合或者继承。
  * <p>
  */
 
 public class BaseWebActivity extends AppCompatActivity {
-
 
 
     protected AgentWeb mAgentWeb;
@@ -71,7 +70,7 @@ public class BaseWebActivity extends AppCompatActivity {
         long p = System.currentTimeMillis();
 
         mAgentWeb = AgentWeb.with(this)//
-                .setAgentWebParent(mLinearLayout,new LinearLayout.LayoutParams(-1,-1) )//
+                .setAgentWebParent(mLinearLayout, new LinearLayout.LayoutParams(-1, -1))//
                 .useDefaultIndicator()//
                 .defaultProgressBarColor()
                 .setReceivedTitleCallback(mCallback)
@@ -89,12 +88,9 @@ public class BaseWebActivity extends AppCompatActivity {
         Log.i("Info", "init used time:" + (n - p));
 
 
-
-
-
     }
 
-    private WebViewClient mWebViewClient=new WebViewClient(){
+    private WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             return super.shouldOverrideUrlLoading(view, request);
@@ -102,18 +98,19 @@ public class BaseWebActivity extends AppCompatActivity {
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-           //do you  work
-            Log.i("Info","BaseWebActivity onPageStarted");
+            //do you  work
+            Log.i("Info", "BaseWebActivity onPageStarted");
         }
     };
-    private WebChromeClient mWebChromeClient=new WebChromeClient(){
+    private WebChromeClient mWebChromeClient = new WebChromeClient() {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             //do you work
 //            Log.i("Info","progress:"+newProgress);
         }
     };
-    public String getUrl(){
+
+    public String getUrl() {
 
         return "https://m.jd.com/";
     }
