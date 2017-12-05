@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.just.library.agentweb"
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion 19
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -36,7 +36,7 @@ android {
     }
     sourceSets {
         main {
-            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
+            assets.srcDirs = ['src/main/assets']
         }
     }
     lintOptions {
@@ -45,13 +45,12 @@ android {
 }
 
 dependencies {
-    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
     compile project(':library')
-    compile files('libs/alipaySingle-20170510.jar')
 
 //    compile 'com.just.agentweb:agentweb:1.2.3'
 
@@ -59,11 +58,12 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    //noinspection GradleCompatible
+    compile "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
     compile 'us.feras.mdv:markdownview:1.1.0'
     compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
 }

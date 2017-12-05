@@ -47,7 +47,7 @@ public class BounceWebFragment extends AgentWebFragment {
                 .setWebChromeClient(mWebChromeClient)
                 .setReceivedTitleCallback(mCallback)
                 .setWebLayout(getWebLayout())
-                .setSecurityType(AgentWeb.SecurityType.strict)
+                .setSecurityType(AgentWeb.SecurityType.default_check)
                 .addDownLoadResultListener(mDownLoadResultListener)
                 .createAgentWeb()//
                 .ready()//
@@ -65,9 +65,8 @@ public class BounceWebFragment extends AgentWebFragment {
 
 
     protected void addBGChild(FrameLayout frameLayout) {
-
         TextView mTextView = new TextView(frameLayout.getContext());
-        mTextView.setText("技术由 AgentWeb 提供");
+        mTextView.setText("技术由 AgentWeb 提供\r\n仅供参考");
         mTextView.setTextSize(16);
         mTextView.setTextColor(Color.parseColor("#727779"));
         frameLayout.setBackgroundColor(Color.parseColor("#272b2d"));
