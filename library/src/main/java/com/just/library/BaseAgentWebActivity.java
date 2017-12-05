@@ -122,9 +122,7 @@ public abstract class BaseAgentWebActivity extends AppCompatActivity {
 
     }
 
-    protected
-    @Nullable
-    String getUrl() {
+    protected @Nullable String getUrl() {
         return null;
     }
 

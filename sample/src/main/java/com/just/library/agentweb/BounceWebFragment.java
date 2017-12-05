@@ -22,7 +22,6 @@ import com.just.library.IWebLayout;
 public class BounceWebFragment extends AgentWebFragment {
 
     public static BounceWebFragment getInstance(Bundle bundle) {
-
         BounceWebFragment mBounceWebFragment = new BounceWebFragment();
         if (mBounceWebFragment != null)
             mBounceWebFragment.setArguments(bundle);
@@ -47,7 +46,7 @@ public class BounceWebFragment extends AgentWebFragment {
                 .setWebChromeClient(mWebChromeClient)
                 .setReceivedTitleCallback(mCallback)
                 .setWebLayout(getWebLayout())
-                .setSecurityType(AgentWeb.SecurityType.default_check)
+                .setSecurityType(AgentWeb.SecurityType.strict)
                 .addDownLoadResultListener(mDownLoadResultListener)
                 .createAgentWeb()//
                 .ready()//
@@ -69,9 +68,9 @@ public class BounceWebFragment extends AgentWebFragment {
         mTextView.setText("技术由 AgentWeb 提供\r\n仅供参考");
         mTextView.setTextSize(16);
         mTextView.setTextColor(Color.parseColor("#727779"));
+        mTextView.setGravity(Gravity.CENTER_HORIZONTAL);
         frameLayout.setBackgroundColor(Color.parseColor("#272b2d"));
-        FrameLayout.LayoutParams mFlp = new FrameLayout.LayoutParams(-2, -2);
-        mFlp.gravity = Gravity.CENTER_HORIZONTAL;
+        FrameLayout.LayoutParams mFlp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         mFlp.topMargin = AgentWebUtils.dp2px(frameLayout.getContext(), 15);
         frameLayout.addView(mTextView, 0, mFlp);
     }

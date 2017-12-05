@@ -113,7 +113,6 @@ public class CommonActivity extends AppCompatActivity {
 
         }
         ft.commit();
-
     }
 
     @Override

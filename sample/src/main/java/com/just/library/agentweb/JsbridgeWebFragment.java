@@ -21,7 +21,6 @@ import com.just.library.AgentWeb;
 public class JsbridgeWebFragment extends AgentWebFragment {
 
     public static JsbridgeWebFragment getInstance(Bundle bundle) {
-
         JsbridgeWebFragment mJsbridgeWebFragment = new JsbridgeWebFragment();
         if (mJsbridgeWebFragment != null)
             mJsbridgeWebFragment.setArguments(bundle);

@@ -39,6 +39,4 @@ public class WebLayout implements IWebLayout {
     public WebView getWeb() {
         return mWebView;
     }
-
-
 }

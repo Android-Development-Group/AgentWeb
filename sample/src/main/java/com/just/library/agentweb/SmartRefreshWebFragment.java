@@ -20,7 +20,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 public class SmartRefreshWebFragment extends BounceWebFragment {
 
     public static SmartRefreshWebFragment getInstance(Bundle bundle) {
-
         SmartRefreshWebFragment mSmartRefreshWebFragment = new SmartRefreshWebFragment();
         if (mSmartRefreshWebFragment != null)
             mSmartRefreshWebFragment.setArguments(bundle);
